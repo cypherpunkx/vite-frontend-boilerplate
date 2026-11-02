@@ -1,0 +1,42 @@
+name: CI Quality Gate
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+
+jobs:
+  verify:
+    name: Lint, Typecheck, Test & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Code Quality (Lint)
+        run: pnpm run lint
+
+      - name: TypeScript Verification
+        run: pnpm run typecheck
+
+      - name: Unit & Integration Tests
+        run: pnpm run test
+
+      - name: Production Build
+        run: pnpm run build

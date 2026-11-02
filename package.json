@@ -1,7 +1,7 @@
 {
-  "name": "production-frontend-boilerplate",
+  "name": "vite-react-enterprise-template",
   "version": "1.0.0",
-  "description": "Production-ready, highly extensible frontend architecture",
+  "description": "Production-ready, highly resilient and scalable frontend template with Vite, React 19, TypeScript, Valibot, TanStack Router & Query, and Zustand.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,10 +14,22 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "create:feature": "node scripts/create-feature.mjs"
   },
-  "keywords": ["react", "vite", "typescript", "tanstack", "valibot", "zustand", "tailwindcss"],
-  "author": "",
+  "keywords": [
+    "react-template",
+    "vite",
+    "typescript",
+    "valibot",
+    "tanstack-router",
+    "tanstack-query",
+    "zustand",
+    "tailwindcss",
+    "clean-architecture",
+    "feature-driven"
+  ],
+  "author": "Engineering Team",
   "license": "MIT",
   "packageManager": "pnpm@10.33.0",
   "dependencies": {
